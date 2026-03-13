@@ -693,17 +693,135 @@
     margin-bottom: 8px;
   }
 
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .masthead-top, .masthead-nav, .edition-bar { padding: 8px 16px; }
-    .front-page, .content-section, .cta-section { padding: 20px 16px; }
-    .section-header { padding: 10px 16px; }
-    .alert-strip { padding: 12px 16px; }
-    .columns-3, .columns-2, .testimonials-grid, .inside-grid { grid-template-columns: 1fr; }
-    .col + .col { border-left: none; border-top: 1px solid var(--light-border); }
-    .testimonial { border-right: none; border-bottom: 1px solid var(--light-border); }
-    .cta-btn.secondary { margin-left: 0; margin-top: 10px; display: block; }
-    footer { padding: 20px 16px; }
+  /* ─── RESPONSIVE — MOBILE FIRST ─────────────────────────────────────────── */
+
+  /* Prevent any element from overflowing the viewport */
+  * { max-width: 100%; }
+  img, table, pre { overflow-x: auto; }
+
+  @media (max-width: 860px) {
+
+    /* ── Layout containers ── */
+    .newspaper { width: 100%; box-shadow: none; }
+
+    /* ── Masthead ── */
+    .masthead-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      padding: 8px 14px;
+      font-size: 10px;
+    }
+    .masthead-top span:nth-child(2) { display: none; } /* hide date on small screens */
+
+    .masthead-title { padding: 14px 14px 10px; }
+    .masthead-title .pub-sub { font-size: 10px; letter-spacing: 2px; }
+
+    .masthead-nav {
+      padding: 0;
+      justify-content: flex-start;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .masthead-nav::-webkit-scrollbar { display: none; }
+    .masthead-nav a {
+      font-size: 11px;
+      padding: 10px 12px;
+      letter-spacing: 1px;
+    }
+
+    /* ── Breaking banner ── */
+    .breaking-banner { padding: 0 10px; gap: 10px; }
+    .breaking-label { font-size: 11px; padding: 5px 10px; }
+    .breaking-ticker { font-size: 12px; }
+
+    /* ── Edition bar ── */
+    .edition-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      padding: 8px 14px;
+      font-size: 10px;
+    }
+
+    /* ── Section padding ── */
+    .front-page { padding: 18px 14px; }
+    .content-section { padding: 20px 14px; }
+    .cta-section { padding: 32px 14px; }
+    .section-header { padding: 10px 14px; gap: 10px; }
+    .alert-strip { padding: 12px 14px; gap: 10px; }
+
+    /* ── All multi-column grids → single column ── */
+    .columns-3,
+    .columns-2,
+    .testimonials-grid,
+    .inside-grid { grid-template-columns: 1fr !important; }
+
+    /* Remove left borders between stacked columns */
+    .col + .col {
+      border-left: none !important;
+      border-top: 1px solid var(--light-border);
+    }
+
+    /* ── Inside grid items ── */
+    .inside-grid { background: transparent; gap: 8px; }
+    .inside-item { border: 1px solid var(--light-border); }
+
+    /* ── Testimonials ── */
+    .testimonial {
+      border-right: none !important;
+      border-bottom: 1px solid var(--light-border);
+    }
+    .testimonial[style*="span 3"] { grid-column: span 1 !important; }
+
+    /* ── Headlines ── */
+    .main-headline { font-size: clamp(24px, 7vw, 38px); letter-spacing: -0.5px; }
+    .main-deck { font-size: 15px; }
+
+    /* ── Photo boxes ── */
+    .photo-box .number { font-size: 52px; }
+
+    /* ── Pullquote ── */
+    .pullquote { font-size: 17px; }
+
+    /* ── CTA buttons: stack vertically ── */
+    .cta-btn { display: block; width: 100%; text-align: center; box-sizing: border-box; }
+    .cta-btn.secondary {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* ── Price box ── */
+    .price-box { min-width: 0; width: 100%; box-sizing: border-box; }
+    .price-box .price { font-size: 44px; }
+
+    /* ── PLR box ── */
+    .plr-box { padding: 16px; }
+
+    /* ── Sources grid ── */
+    .sources-grid { grid-template-columns: 1fr !important; }
+
+    /* ── Footer ── */
+    footer { padding: 18px 14px; font-size: 10px; }
+    footer a { word-break: break-all; }
+
+    /* ── Fancy rule ── */
+    .fancy-rule { margin: 16px 0; }
+  }
+
+  /* Extra small — phones below 420px */
+  @media (max-width: 420px) {
+    .masthead-title .pub-name { letter-spacing: -1px; }
+    .main-headline { font-size: clamp(20px, 8vw, 28px); }
+    .kicker { font-size: 11px; letter-spacing: 2px; }
+    .col p, .case-box p, .warning-box p, .warning-box li { font-size: 13px; }
+    .checklist li { font-size: 13px; }
+    .breaking-banner { overflow: hidden; }
+    .section-header h2 { font-size: 14px; letter-spacing: 2px; }
+    .section-header span { display: none; }
   }
 
   /* Decorative rule */
@@ -980,7 +1098,7 @@
             <span class="num">01</span>
             <div>
               <h4>Guia Completo em PDF</h4>
-              <p>+60 páginas com tudo sobre o vírus: origem, transmissão, sintomas, tratamento e prevenção. Linguagem clara, sem jargão médico.</p>
+              <p>+20 páginas com tudo sobre o vírus: origem, transmissão, sintomas, tratamento e prevenção. Linguagem clara, sem jargão médico.</p>
             </div>
           </div>
           <div class="inside-item">
@@ -1092,7 +1210,7 @@
   <!-- FONTES -->
   <section style="background: var(--paper2); padding: 24px 40px; border-top: 2px solid var(--ink);">
     <h3 style="font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--mid); margin-bottom: 14px;">📚 Fontes e Referências</h3>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.6; color: var(--mid);">
+    <div class="sources-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.6; color: var(--mid);">
       <div><strong>[1]</strong> Agência Brasil / Ministério da Saúde — Casos de Mpox no Brasil em 2024<br><a href="https://agenciabrasil.ebc.com.br/saude/noticia/2024-11/brasil-contabiliza-15-mil-casos-de-mpox-em-2024" target="_blank" rel="noopener" style="color: var(--red); word-break: break-all;">agenciabrasil.ebc.com.br (nov/2024)</a></div>
       <div><strong>[2]</strong> Agência Brasil — Brasil registra 88 casos de Mpox em 2026<br><a href="https://agenciabrasil.ebc.com.br/saude/noticia/2026-02/brasil-registra-88-casos-de-mpox-em-2026-saiba-como-evitar-doenca" target="_blank" rel="noopener" style="color: var(--red); word-break: break-all;">agenciabrasil.ebc.com.br (fev/2026)</a></div>
       <div><strong>[3]</strong> Ministério da Saúde — 140 casos confirmados no Brasil em 2026<br><a href="https://enfoco.com.br/saude-bem-estar/mpox-140-casos-confirmados-no-brasil/" target="_blank" rel="noopener" style="color: var(--red); word-break: break-all;">enfoco.com.br (mar/2026)</a></div>

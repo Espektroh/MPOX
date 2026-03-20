@@ -34,12 +34,11 @@ src="https://www.facebook.com/tr?id=1445305717066822&ev=PageView&noscript=1"
 <meta property="og:title" content="MPOX: Guia Completo — Sintomas, Prevenção e Casos Reais">
 <meta property="og:description" content="Mais de 20 páginas com informação verificada sobre MPOX. Protocolo de isolamento, guia de vacinação e checklist de sintomas. Acesso imediato.">
 <title>MPOX: O Guia Completo que Nenhum Veículo de Imprensa Publicou</title>
-<!-- Preconnect para acelerar fontes -->
+<!-- Preconnect para reduzir latência DNS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Carregamento não-bloqueante das fontes -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;600&family=Barlow+Condensed:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;600&family=Barlow+Condensed:wght@400;600;700;800&display=swap"></noscript>
+<!-- Fontes com font-display=optional — zero CLS, sem bloqueio -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;600&family=Barlow+Condensed:wght@400;600;700;800&display=optional">
 <style>
   :root {
     --ink: #111010;
@@ -53,6 +52,15 @@ src="https://www.facebook.com/tr?id=1445305717066822&ev=PageView&noscript=1"
     --column-gap: 24px;
   }
 
+
+  /* CLS fix — reserva espaço para evitar layout shift nas fontes */
+  @font-face {
+    font-family: 'Playfair Display';
+    size-adjust: 100%;
+    ascent-override: 90%;
+    descent-override: 20%;
+  }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
@@ -63,10 +71,12 @@ src="https://www.facebook.com/tr?id=1445305717066822&ev=PageView&noscript=1"
     color: var(--ink);
     font-size: 16px;
     line-height: 1.65;
+    font-size-adjust: 0.5;
   }
 
   /* MASTHEAD */
   .masthead {
+    min-height: 160px;
     background: var(--ink);
     color: var(--paper);
     padding: 0;

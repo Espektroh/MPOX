@@ -1,33 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1445305717066822');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1445305717066822&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 
-<!-- Microsoft Clarity Code -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "vyuyg00l96");
-</script>
-<!-- End Microsoft Clarity Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Guia completo sobre MPOX: entenda o vírus, reconheça os sintomas, saiba como se proteger e o que fazer em caso de exposição. Baseado em dados da OMS, CDC e Ministério da Saúde.">
@@ -1401,6 +1375,45 @@ src="https://www.facebook.com/tr?id=1445305717066822&ev=PageView&noscript=1"
     });
   });
 </script>
+
+
+  <!-- Meta Pixel + Clarity carregados após o conteúdo principal -->
+  <script>
+    // Carrega scripts de terceiros apenas após o conteúdo estar visível
+    function loadThirdPartyScripts() {
+      // Meta Pixel
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1445305717066822');
+      fbq('track', 'PageView');
+
+      // Microsoft Clarity
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "vyuyg00l96");
+    }
+
+    // Aguarda o conteúdo carregar antes de disparar os pixels
+    if (document.readyState === 'complete') {
+      setTimeout(loadThirdPartyScripts, 1000);
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(loadThirdPartyScripts, 1000);
+      });
+    }
+  </script>
+  <!-- Noscript fallback Meta Pixel -->
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1445305717066822&ev=PageView&noscript=1"
+  /></noscript>
 
 </body>
 </html>
